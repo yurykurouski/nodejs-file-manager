@@ -1,11 +1,10 @@
-import { table, log } from 'console'
-import { getDirName } from './utils/getDirName.js';
+import { table } from 'console'
 import { getSortedFolderContent } from './utils/getSortedFolderContent.js';
+import { printCurrentDir } from './utils//index.js';
 
-export const printFolderContent = async () => {
-  const dirName = getDirName(import.meta.url);
+export const printFolderContent = async (currentDir) => {
+  const folderContent = await getSortedFolderContent(currentDir);
 
-  const folderContent = await getSortedFolderContent(dirName);
-
+  printCurrentDir(currentDir);
   table(folderContent);
 }
