@@ -6,6 +6,7 @@ export const COMMAND_OS = 'os';
 export const COMMAND_CD = 'cd';
 export const COMMAND_CAT = 'cat';
 export const COMMAND_ADD = 'add';
+export const COMMAND_RN = 'rn';
 
 export const COMMAND_ARG_EOL = '--EOL';
 export const COMMAND_ARG_CPUS = '--cpus'
