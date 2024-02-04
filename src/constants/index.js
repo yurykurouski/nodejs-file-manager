@@ -11,6 +11,7 @@ export const COMMAND_CP = 'cp';
 export const COMMAND_MV = 'mv';
 export const COMMAND_RM = 'rm';
 export const COMMAND_HASH = 'hash';
+export const COMMAND_COMPRESS = 'compress';
 
 export const COMMAND_ARG_EOL = '--EOL';
 export const COMMAND_ARG_CPUS = '--cpus'
