@@ -8,6 +8,7 @@ export const COMMAND_CAT = 'cat';
 export const COMMAND_ADD = 'add';
 export const COMMAND_RN = 'rn';
 export const COMMAND_CP = 'cp';
+export const COMMAND_MV = 'mv';
 
 export const COMMAND_ARG_EOL = '--EOL';
 export const COMMAND_ARG_CPUS = '--cpus'

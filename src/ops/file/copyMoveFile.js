@@ -1,9 +1,9 @@
-import { createReadStream, createWriteStream } from "fs";
+import { createReadStream, createWriteStream, rm } from "fs";
 import { resolve, join } from "path";
 
 import { printError, printCurrentDir } from "../../utils/index.js";
 
-export const copyFile = ([fileName, targetDir], currDir) => {
+export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
   if (!fileName || !targetDir) return printError();
 
   const filePath = fileName[0] === '/' ? fileName : join(currDir, fileName);
@@ -15,6 +15,12 @@ export const copyFile = ([fileName, targetDir], currDir) => {
   readableStream.pipe(writeableStream);
 
   writeableStream.on("finish", () => {
+    if (isMove) {
+      rm(filePath, (err) => {
+        if (err) printError();
+      });
+    }
+
     printCurrentDir(currDir);
   });
 
