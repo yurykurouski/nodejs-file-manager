@@ -1,14 +1,13 @@
 import zlib from 'zlib';
 import fs from 'fs';
-import { extname, basename, resolve } from 'path';
+import { basename, resolve } from 'path';
 import { printError, printCurrentDir } from "../../utils/index.js";
 
 
 export const compressFile = ([sourceFile, targetDir], currDir) => {
   if (!sourceFile || !targetDir) return printError();
 
-  const fileExt = extname(sourceFile);
-  const fileName = basename(sourceFile, fileExt);
+  const fileName = basename(sourceFile);
 
   const compressStream = zlib.createBrotliCompress();
   const readableStream = fs.createReadStream(sourceFile);
