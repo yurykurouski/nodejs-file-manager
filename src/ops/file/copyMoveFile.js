@@ -2,6 +2,7 @@ import { createReadStream, createWriteStream, rm } from "fs";
 import { resolve, join } from "path";
 
 import { printError, printCurrentDir } from "../../utils/index.js";
+import { deleteFile } from './deleteFile.js';
 
 export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
   if (!fileName || !targetDir) return printError();
@@ -16,12 +17,10 @@ export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
 
   writeableStream.on("finish", () => {
     if (isMove) {
-      rm(filePath, (err) => {
-        if (err) printError();
-      });
+      deleteFile(fileName, currDir);
+    } else {
+      printCurrentDir(currDir);
     }
-
-    printCurrentDir(currDir);
   });
 
   readableStream.on("error", printError);
