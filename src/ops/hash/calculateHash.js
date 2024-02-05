@@ -1,10 +1,11 @@
 import fs from 'fs';
 import { createHash } from "crypto";
+import { ERROR_TYPE } from '../../constants/index.js';
 import { printError, printCurrentDir } from "../../utils/index.js";
 
 
 export const calculateHash = (filePath, currDir) => {
-  if (!filePath) return printError();
+  if (!filePath) return printError(ERROR_TYPE.INPUT);
 
   const reader = fs.createReadStream(filePath);
 
