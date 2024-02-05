@@ -1,11 +1,11 @@
-import { createReadStream, createWriteStream, rm } from "fs";
 import { resolve, join } from "path";
-
-import { printError, printCurrentDir } from "../../utils/index.js";
 import { deleteFile } from './deleteFile.js';
+import { ERROR_TYPE } from "../../constants/index.js";
+import { createReadStream, createWriteStream } from "fs";
+import { printError, printCurrentDir } from "../../utils/index.js";
 
 export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
-  if (!fileName || !targetDir) return printError();
+  if (!fileName) return printError(ERROR_TYPE.INPUT);
 
   const filePath = fileName[0] === '/' ? fileName : join(currDir, fileName);
   const targetPath = targetDir[0] === '/' ? targetDir : join(currDir, targetDir);
