@@ -1,4 +1,5 @@
 import { readdir } from 'fs/promises';
+import { ERROR_TYPE } from '../../constants/index.js';
 import { printError, printCurrentDir } from '../../utils/index.js';
 
 export const changeDirectory = async (dirName, currentDir) => {
@@ -11,7 +12,7 @@ export const changeDirectory = async (dirName, currentDir) => {
     printCurrentDir(newDir);
     return newDir;
   } catch {
-    printError();
+    printError(ERROR_TYPE.INPUT);
     printCurrentDir(currentDir);
     return currentDir;
   }
