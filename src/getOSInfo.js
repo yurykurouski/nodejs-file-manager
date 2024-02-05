@@ -1,12 +1,13 @@
-import { log, table } from 'console';
-import { EOL, cpus, homedir, userInfo, arch } from 'os';
 import {
   COMMAND_ARG_EOL,
   COMMAND_ARG_ARCH,
   COMMAND_ARG_CPUS,
   COMMAND_ARG_HOMEDIR,
   COMMAND_ARG_USERNAME,
+  ERROR_TYPE,
 } from './constants/index.js';
+import { log, table } from 'console';
+import { EOL, cpus, homedir, userInfo, arch } from 'os';
 import { printCurrentDir } from './utils/printCurrentDir.js';
 
 
@@ -29,7 +30,7 @@ export const getOSInfo = (arg, dirName) => {
       break;
 
     default:
-      process.stdout.write('Invalid input\n');
+      printError(ERROR_TYPE.INPUT);
   }
 
   printCurrentDir(dirName);
