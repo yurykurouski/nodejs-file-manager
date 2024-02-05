@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { join } from 'path';
 import { printError } from '../../utils/index.js';
+import { ERROR_TYPE } from '../../constants/index.js';
 
 
 export const readFile = (path, currentDir) => {
@@ -8,7 +9,9 @@ export const readFile = (path, currentDir) => {
 
   const readableStream = fs.createReadStream(filePath);
 
-  readableStream.on('error', printError);
+  readableStream.on('data', (chunk) => {
+    console.log(chunk.toString());
+  });
 
-  readableStream.pipe(process.stdout);
+  readableStream.on('error', () => printError(ERROR_TYPE.OPERATION));
 }
