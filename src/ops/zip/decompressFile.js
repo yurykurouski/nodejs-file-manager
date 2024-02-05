@@ -18,7 +18,7 @@ export const decompressFile = ([filePath, targetPath], currDir) => {
 
   writeableStream.on('finish', () => printCurrentDir(currDir));
 
-  compressStream.on('error', printError);
-  readableStream.on('error', printError);
-  writeableStream.on('error', printError);
+  compressStream.on('error', () => printError());
+  readableStream.on('error', () => printError());
+  writeableStream.on('error', () => printError());
 }
