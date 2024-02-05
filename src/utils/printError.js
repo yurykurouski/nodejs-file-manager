@@ -1,3 +1,3 @@
-export const printError = () => {
-  console.log('Operation failed');
+export const printError = (errorMessage) => {
+  console.log(errorMessage);
 }

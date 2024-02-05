@@ -20,3 +20,8 @@ export const COMMAND_ARG_CPUS = '--cpus'
 export const COMMAND_ARG_HOMEDIR = '--homedir'
 export const COMMAND_ARG_USERNAME = '--username'
 export const COMMAND_ARG_ARCH = '--architecture'
+
+export const ERROR_TYPE = {
+  INPUT: 'Invalid input',
+  OPERATION: 'Operation failed'
+}
