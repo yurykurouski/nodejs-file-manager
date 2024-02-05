@@ -1,5 +1,6 @@
 export const ARG_USERNAME = '--username';
 
+export const COMMAND_EXIT = '.exit';
 export const COMMAND_LS = 'ls';
 export const COMMAND_UP = 'up';
 export const COMMAND_OS = 'os';
