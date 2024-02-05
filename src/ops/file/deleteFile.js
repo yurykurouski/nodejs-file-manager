@@ -11,7 +11,7 @@ export const deleteFile = (fileName, currDir) => {
 
   rm(filePath, (err) => {
     if (err) {
-      printError();
+      printError(ERROR_TYPE.OPERATION);
     } else {
       printCurrentDir(currDir);
     }

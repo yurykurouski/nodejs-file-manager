@@ -5,7 +5,7 @@ import { createReadStream, createWriteStream } from "fs";
 import { printError, printCurrentDir } from "../../utils/index.js";
 
 export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
-  if (!fileName) return printError(ERROR_TYPE.INPUT);
+  if (!fileName || typeof targetDir !== 'string') return printError(ERROR_TYPE.INPUT);
 
   const filePath = fileName[0] === '/' ? fileName : join(currDir, fileName);
   const targetPath = targetDir[0] === '/' ? targetDir : join(currDir, targetDir);
@@ -23,6 +23,9 @@ export const copyMoveFile = ([fileName, targetDir], currDir, isMove) => {
     }
   });
 
-  readableStream.on("error", printError);
-  writeableStream.on("error", printError);
+  readableStream.on("error", () => {
+    deleteFile(fileName, currDir);
+    printError();
+  });
+  writeableStream.on("error", () => printError());
 }
