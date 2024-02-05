@@ -1,5 +1,5 @@
-import { writeFile } from "fs/promises";
 import { join } from 'path';
+import { writeFile } from "fs/promises";
 import { printCurrentDir, printError } from '../../utils/index.js';
 
 export const createFile = async (filename, currDir) => {
