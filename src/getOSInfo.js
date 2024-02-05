@@ -8,7 +8,7 @@ import {
 } from './constants/index.js';
 import { log, table } from 'console';
 import { EOL, cpus, homedir, userInfo, arch } from 'os';
-import { printCurrentDir } from './utils/printCurrentDir.js';
+import { printCurrentDir, printError } from './utils/index.js';
 
 
 export const getOSInfo = (arg, dirName) => {
