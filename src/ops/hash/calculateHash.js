@@ -15,5 +15,5 @@ export const calculateHash = (filePath, currDir) => {
   });
 
   reader.on('end', () => printCurrentDir(currDir));
-  reader.on('error', printError);
+  reader.on('error', () => printError());
 }
