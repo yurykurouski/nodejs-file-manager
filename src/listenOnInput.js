@@ -23,7 +23,7 @@ import {
   ERROR_TYPE
 } from './constants/index.js';
 import { getOSInfo } from './getOSInfo.js';
-import { printError } from './utils/printError.js';
+import { printError } from './utils/index.js';
 import { calculateHash } from './ops/hash/index.js';
 import { printFolderContent } from './printFolderContent.js'
 import { compressFile, decompressFile } from './ops/zip/index.js';
